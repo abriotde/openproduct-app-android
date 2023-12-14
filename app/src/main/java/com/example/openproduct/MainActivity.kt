@@ -1,6 +1,7 @@
 package com.example.openproduct
 
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,15 +15,11 @@ import com.example.openproduct.ui.theme.OpenProductTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setContentView(R.layout.activity_main)
         super.onCreate(savedInstanceState)
-        setContent {
-            OpenProductTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
-                }
-            }
-        }
+        val webView:WebView = findViewById(R.id.webView)
+        val url:String = "https://openproduct.freeboxos.fr/"
+        webView.loadUrl(url)
     }
 }
 
